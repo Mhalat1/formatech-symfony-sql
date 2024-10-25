@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Display 3 columns */
+            gap: 1rem; /* Add some gap between items */
+        }
+    </style>
+</head>
+<body class="m-4"> {# Adding a margin of 4 units to all sides of the body #}
+    <img src="logo.png" alt="Logo" class="mx-auto my-4" /> {# Add your logo image with appropriate path #}
+            <h1 class="text-center mt-8 text-xl font-bold">Etablissements</h1> {# Add the title "Etablissements" at the bottom with appropriate styling #}
+    </br>
+    <div class="grid-container">
+        {% for session in institution_sessions %}
+            <div class=" md:justify-between md:items-center md:px-4 md:py-2 bg-blue-200 border border-blue-500 rounded-md p-5 mb-4 aspect-w-1 aspect-h-1">
+
+                <p class="text-sm md:text-base">{{ session.type }}</p>
+                <p class="text-sm md:text-base">{{ session.date_debut }}</p>
+                <p class="text-sm md:text-base">{{ session.date_fin }}</p>
+                <p class="text-sm md:text-base">{{ session.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+
+</body>
+</html>
